@@ -7,7 +7,7 @@ import Home from './pages/Home';
 // import About from './pages/About';
 import Navigation from "./components/Navigation";
 import Products from "./pages/Products";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart"; 
 
 const  App  = () =>
 {
