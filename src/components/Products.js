@@ -10,6 +10,7 @@ const Products = () => {
       fetch('https://ecom-rest-apis.herokuapp.com/api/products')
       .then(response => response.json())
       .then(products => {setProducts(products);});
+      console.log(Products);
 
     },[]);
 

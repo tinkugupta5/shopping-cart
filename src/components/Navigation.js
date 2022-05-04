@@ -9,8 +9,8 @@ const Navigation = () => {
     }
 
     return (
-        <>
-        
+        <>  
+             
         <nav className="container mx-auto flex items-center justify-between py-5 ">
             <div>
                 <Link to="/">
@@ -31,8 +31,7 @@ const Navigation = () => {
                 </li>
             </ul>
         </nav>
-        
-        
+               
         </>
     )
 }
