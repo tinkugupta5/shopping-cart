@@ -1,29 +1,30 @@
 import {useState,useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams,useNavigate} from 'react-router-dom';
+
 const SingleProduct = () => {
 
     const [product , setProduct] = useState({});
     const params = useParams(); 
+    const navigate = useNavigate();
 
     useEffect(() => {
      
-        fetch(`'https://ecom-rest-apis.herokuapp.com/api/products/${params._id}'`)
+        fetch(`https://ecom-rest-apis.herokuapp.com/api/products/${params._id}`)
         .then(response => response.json())
         .then(product => {
-            setProduct(product);          
+            setProduct(product);
+            // console.log(product);     
         })
-      
-      
-    }, []);
+    }, [params._id]);
     
     
     
 
   return (
     <div className="container mx-auto mt-12">
-        <button className="mb-12 font-bold">Back</button>
+        <button className="mb-12 font-bold" onClick={() => navigate(-1)}>Back</button>
         <div className="flex">
-            <img src="/images/peproni.png" alt="pizza"/>
+            <img src={product.image} alt="pizza"/>
             <div className="ml-16">
             <h1 className="text-xl font-bold">{product.name}</h1>
             <div className="text-md">{product.size}</div>

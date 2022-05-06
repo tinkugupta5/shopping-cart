@@ -22,7 +22,6 @@ const Home = () => {
 
         <div className="pb-24">
             <Products/>
-
         </div>
 
          </>
