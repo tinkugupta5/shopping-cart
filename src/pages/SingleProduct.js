@@ -32,7 +32,6 @@ const SingleProduct = () => {
             <button className="bg-yellow-500 py-1 px-8 rounded-full font-bold mt-4">Add to cart </button>   
             </div> 
         </div>
-
     </div>
   )
 }
