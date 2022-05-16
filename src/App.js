@@ -17,7 +17,7 @@ const  App  = () =>
     // for cart update its like state for the cart value change
     const [cart,setCart] = useState({});
 
-    // fetch cart data from localstorage
+    // fetch cart data from localstorage (Step First )
 
     useEffect(() => {
 
@@ -30,7 +30,7 @@ const  App  = () =>
         <>
 
        <Router>
-            <CartContext.Provider value={{name:'tinkugupta'}}>
+            <CartContext.Provider value={{cart}}>
                     <Navigation/>
                     <Routes>               
                         <Route path="/" element={<Home/>}></Route>
