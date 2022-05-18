@@ -15,13 +15,13 @@ import { useEffect, useState } from "react";
 const  App  = () =>
 {
     // for cart update its like state for the cart value change
-    const [cart,setCart] = useState({});
+    const [cart,setCart] = useState({}); //useState consisit empty array
 
     // fetch cart data from localstorage (Step First )
 
     useEffect(() => {
 
-        // use local storage (12/04/2022)
+        // use local storage (12/04/2022)or {{cart:cart ===> use it like simple cart }}
         const cart = window.localStorage.getItem('cart');
 
     },[])

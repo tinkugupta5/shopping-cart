@@ -3,22 +3,29 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../CartContext';
 
-const Product = (props) => {
-  const {cart} = useContext(CartContext);
+  const Product = (props) => {
+  const {cart , setCart} = useContext(CartContext);
   console.log(props);
   const {product} = props;
 
   const addToCart = (e,product) => {
     // this preventDefault stop redirection to detail page it not jump to detal page on button click
     e.preventDefault();
-    let _cart = {...cart};
+    // local cart (we) (...cart is a clone in _cart which consisiiit object )
+    let _cart = {...cart}; // spread operator to clone the object of cart 
     if(!_cart.items){
       _cart.items = {}
     }
 
     if(_cart.items[product._id]){
       _cart.items[product._id] = _cart.items[product.id] + 1;
+    } else {
+
+       _cart.items[product.id] = 1;
     }
+
+    _cart.totalItems +=1; //or _cart.totalItems = _cart.totalItem + 1;
+    setCart(_cart);
 
 
 
