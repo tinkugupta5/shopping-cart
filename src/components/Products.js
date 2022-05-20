@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from './Product'
+// here useContext work as a hook 
 import { useState,useEffect,useContext } from 'react'    
 import { CartContext } from '../CartContext';
 

@@ -5,9 +5,9 @@ import { CartContext } from '../CartContext';
 
   const Product = (props) => {
   const {cart , setCart} = useContext(CartContext);
-  console.log(props);
+  // console.log(props);
   const {product} = props;
-
+ 
   const addToCart = (e,product) => {
     // this preventDefault stop redirection to detail page it not jump to detal page on button click
     e.preventDefault();
@@ -15,17 +15,27 @@ import { CartContext } from '../CartContext';
     let _cart = {...cart}; // spread operator to clone the object of cart 
     if(!_cart.items){
       _cart.items = {}
+      // console.log(_cart.items);
+      // console.log("cart item value");
     }
 
     if(_cart.items[product._id]){
-      _cart.items[product._id] = _cart.items[product.id] + 1;
+      _cart.items[product._id] +=  1;
     } else {
 
-       _cart.items[product.id] = 1;
+       _cart.items[product._id] = 1;
+    }
+
+    if(!_cart.totalItems) {
+      _cart.totalItems = 0 ;
     }
 
     _cart.totalItems +=1; //or _cart.totalItems = _cart.totalItem + 1;
-    setCart(_cart);
+    setCart(_cart); 
+
+   
+
+   
 
 
 
@@ -38,7 +48,7 @@ import { CartContext } from '../CartContext';
 
     //  totalitems : 5
     //}
-    console.log(product);
+    // console.log(product);
   }
 
 

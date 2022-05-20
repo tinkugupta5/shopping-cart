@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 const  App  = () =>
 {
     // for cart update its like state for the cart value change
-    const [cart,setCart] = useState({}); //useState consisit empty array
+    const [cart, setCart] = useState({}); //useState consisit empty array
 
     // fetch cart data from localstorage (Step First )
 
@@ -23,14 +23,23 @@ const  App  = () =>
 
         // use local storage (12/04/2022)or {{cart:cart ===> use it like simple cart }}
         const cart = window.localStorage.getItem('cart');
+        setCart(JSON.parse(cart));
+        
 
-    },[])
+    },[]);
+
+    useEffect(() => {
+
+        // 
+        window.localStorage.setItem('cart' , JSON.stringify(cart));
+
+    },[cart]);  // [cart] when the cart change then use effect call
 
     return (
         <>
 
        <Router>
-            <CartContext.Provider value={{cart}}>
+            <CartContext.Provider value={{cart,setCart}}>
                     <Navigation/>
                     <Routes>               
                         <Route path="/" element={<Home/>}></Route>
