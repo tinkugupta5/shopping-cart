@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Navigation from "./components/Navigation";
 import ProductsPage from "./pages/ProductsPage";
 import Cart from "./pages/Cart"; 
+// import About from "./pages/About"; 
 import SingleProduct from './pages/SingleProduct';
 import { CartContext } from "./CartContext";
 import { useEffect, useState } from "react";
