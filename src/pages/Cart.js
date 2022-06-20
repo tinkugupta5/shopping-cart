@@ -37,6 +37,12 @@ const Cart = () => {
     } )
   
   }, [cart])
+
+  const getQty = (productId) => 
+  {
+    return cart.items[productId];
+
+  }
   
   return (
     
@@ -56,7 +62,7 @@ const Cart = () => {
             {/* increment and decrement */}
             <div>
               <button className='bg-yellow-500 px-4 py-2 rounded-full leading-none'  >-</button>
-              <b className='px-2'>2</b>
+              <b className='px-2'>{getQty(product._id)}</b>
               <button className="bg-yellow-500 px-4 py-2 rounded-full leading-none">+</button>
             </div>
             <span>{product.price} </span>
