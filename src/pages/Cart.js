@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const Cart = () => {
   const [products,setProducts] = useState([]);
-  const {cart} = useContext(CartContext);
+  const {cart,setCart} = useContext(CartContext);
   console.log(cart);
 
   // we have an items list then we will call to our server through use effect | 
@@ -40,9 +40,18 @@ const Cart = () => {
 
   const getQty = (productId) => 
   {
+    console.log(productId);
+    console.log("find product id");
     return cart.items[productId];
-
   }
+
+  const increment = (productId) => {
+    const existingQty = cart.items[productId];
+    const _cart = {...cart};
+    _cart.items[productId] = existingQty + 1;
+    _cart.totalItems += 1;
+    setCart(_cart);
+}
   
   return (
     
@@ -51,6 +60,7 @@ const Cart = () => {
       <ul>
 
         {
+          // loop products
           products.map(product => {
             return(
               <li className='mb-12 '>
@@ -63,7 +73,7 @@ const Cart = () => {
             <div>
               <button className='bg-yellow-500 px-4 py-2 rounded-full leading-none'  >-</button>
               <b className='px-2'>{getQty(product._id)}</b>
-              <button className="bg-yellow-500 px-4 py-2 rounded-full leading-none">+</button>
+              <button onClick={()=>{increment(product._id)}} className="bg-yellow-500 px-4 py-2 rounded-full leading-none">+</button>
             </div>
             <span>{product.price} </span>
             <button className='bg-red-500 px-4 py-2 rounded-full leading-none text-white'>Delete</button>
