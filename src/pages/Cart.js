@@ -52,6 +52,22 @@ const Cart = () => {
     _cart.totalItems += 1;
     setCart(_cart);
 }
+
+
+const Decrement = (productId) => {
+  const existingQty = cart.items[productId]
+  // this logic for preventing from o -1 -2 cart value if press dcrement
+  if(existingQty===1)
+  {
+    return;
+  }
+  const _cart = {...cart};
+  _cart.items[productId] = existingQty - 1;
+  _cart.totalItems -= 1;
+  setCart(_cart);
+
+
+}
   
   return (
     
@@ -71,7 +87,7 @@ const Cart = () => {
             </div>
             {/* increment and decrement */}
             <div>
-              <button className='bg-yellow-500 px-4 py-2 rounded-full leading-none'  >-</button>
+              <button onClick={()=>{Decrement(product._id)}} className='bg-yellow-500 px-4 py-2 rounded-full leading-none'  >-</button>
               <b className='px-2'>{getQty(product._id)}</b>
               <button onClick={()=>{increment(product._id)}} className="bg-yellow-500 px-4 py-2 rounded-full leading-none">+</button>
             </div>
