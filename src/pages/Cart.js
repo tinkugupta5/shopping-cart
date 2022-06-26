@@ -95,6 +95,13 @@ const handleDelete = (productId) =>
 }
 
 
+const handleOrderNow = () => {
+  window.alert('Order placed succesfully!');
+  setProducts([]);
+  setCart({});
+}
+
+
 
 
   return (
@@ -138,7 +145,7 @@ const handleDelete = (productId) =>
           <b>Grand Total:</b>   {total}
         </div>
         <div className="text-right mt-6">
-          <button className='bg-yellow-500 px-4 py-2 rounded-full leading-none'>Order Now</button>
+          <button onClick={handleOrderNow} className='bg-yellow-500 px-4 py-2 rounded-full leading-none'>Order Now</button>
         </div>
 
       </ul>

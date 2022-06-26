@@ -12,6 +12,7 @@ import Cart from "./pages/Cart";
 import SingleProduct from './pages/SingleProduct';
 import { CartContext } from "./CartContext";
 import { useEffect, useState } from "react";
+import {getCart,storeCart} from './helpers';
 
 const  App  = () =>
 {
@@ -20,20 +21,16 @@ const  App  = () =>
 
     // fetch cart data from localstorage (Step First )
 
+  // Fetch cart from local storage
     useEffect(() => {
-
-        // use local storage (12/04/2022)or {{cart:cart ===> use it like simple cart }}
-        const cart = window.localStorage.getItem('cart');
-        setCart(JSON.parse(cart));
-        
-
-    },[]);
+    getCart().then(cart => {
+      setCart(JSON.parse(cart));
+    });
+    }, []);
+    
 
     useEffect(() => {
-
-        // 
-        window.localStorage.setItem('cart' , JSON.stringify(cart));
-
+        storeCart(JSON.stringify(Cart));
     },[cart]);  // [cart] when the cart change then use effect call
 
     return (
@@ -52,9 +49,6 @@ const  App  = () =>
             </CartContext.Provider>
         </Router> 
 
-
-        
-       
     </>
     )
 }
