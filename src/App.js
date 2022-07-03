@@ -35,7 +35,7 @@ const  App  = () =>
 
     return (
         <>
-
+        
        <Router>
             <CartContext.Provider value={{cart,setCart}}>
                     <Navigation/>
@@ -48,8 +48,8 @@ const  App  = () =>
                     </Routes>
             </CartContext.Provider>
         </Router> 
-
     </>
+
     )
 }
 

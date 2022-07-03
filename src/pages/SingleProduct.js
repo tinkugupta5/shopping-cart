@@ -52,12 +52,6 @@ const SingleProduct = () => {
           setIsAdding(false);
         },1000)
     
-       
-    
-       
-    
-    
-    
         //const cart = {
        //   items : {
         //    '6057895455' : 2,
@@ -70,9 +64,6 @@ const SingleProduct = () => {
         // console.log(product);
       }
     
-    
-    
-
   return (
     <div className="container mx-auto mt-12">
         <button className="mb-12 font-bold" onClick={() => navigate(-1)}>Back</button>
