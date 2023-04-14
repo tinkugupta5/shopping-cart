@@ -12,15 +12,11 @@ const Navigation = () => {
         borderRadius:'50px'
     }
 
-
     const {cart} = useContext(CartContext);
 
     return (
-        
         <>  
-             
         <nav className="container mx-auto flex items-center justify-between py-5 ">
-            
             <div>
                 <Link to="/">
                     <img style={{height:45}} src="/images/logo.png" alt='logo'/>
@@ -40,9 +36,7 @@ const Navigation = () => {
                      </Link>
                 </li>
             </ul>
-            
         </nav>
-               
         </>
     )
 }
